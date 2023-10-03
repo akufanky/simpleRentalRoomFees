@@ -184,7 +184,10 @@ public class roomFees extends javax.swing.JFrame {
         String room = cbRType.getSelectedItem().toString();
         String price = tfPrice.getText();
         
-        int result = JOptionPane.showConfirmDialog(null, "Do you want to confirm this data?","Confirm", JOptionPane.YES_NO_OPTION);
+        if (name.isEmpty() || email.isEmpty() || phoneNumber.isEmpty() || price.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Please  fill in the data completely...");
+        } else {
+            int result = JOptionPane.showConfirmDialog(null, "Do you want to confirm this data?","Confirm", JOptionPane.YES_NO_OPTION);
         
         if (result == JOptionPane.YES_OPTION){
             JOptionPane.showMessageDialog(null,
@@ -193,8 +196,9 @@ public class roomFees extends javax.swing.JFrame {
                     + "\nPhone Number\t: " + phoneNumber
                     + "\nRoom\t\t: " + room
                     + "\nPrice\t\t: " + price);
-        } else {
-            JOptionPane.showMessageDialog(null, "Sorry, your data was not confirmed😢");
+            } else {
+                JOptionPane.showMessageDialog(null, "Sorry, your data was not confirmed😢");
+            }
         }
     }//GEN-LAST:event_btnConfirmActionPerformed
 
